@@ -11,8 +11,18 @@ where $g(x)$ is the geometric mean of $x$.
 * [pycodamath](https://bitbucket.org/genomicepidemiology/pycodamath/src/master/) (version 1.0)
 * [scipy](https://scipy.org/) (version 1.7.3)
 
+### Installation
+
+You need a working postgresql database and a login role that has proper rights to create functions.
+Note, the helper script provided does not take care of granting additional rights to these functions.
+
+```bash
+python install.py -d mydb -u mydbuser
+```
+
+For additional parametrization see the scripts help.
+
 ## TODO
 
-1. provide script to replace %%SCHEMA%% and load in database
-2. provide usage examples
-3. provide test
+1. provide usage examples
+2. provide test
