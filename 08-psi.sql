@@ -1,5 +1,5 @@
 -- scipy/special/xsf/cephes/psi.h
-CREATE OR REPLACE FUNCTION destilled.psi(x double precision)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.psi(x double precision)
 returns double precision as 
 $$
 declare
@@ -20,7 +20,7 @@ begin
     return 'Infinity'::double precision;  --            return std::copysign(std::numeric_limits<double>::infinity(), -x);
   elsif (x < 0.0) then
     /* argument reduction before evaluating tan(pi * x) */
-    r := destilled.fmod(x, 1.);
+    r := %%SCHEMA%%.fmod(x, 1.);
     if (r = 0.0) then
       --raise notice 'psi singular'
       return 'NaN'::double precision;
@@ -51,10 +51,10 @@ begin
   end if;
 
   if ((1.0 <= x) AND (x <= 2.0)) then
-    y := y + destilled.digamma_imp_1_2(x);
+    y := y + %%SCHEMA%%.digamma_imp_1_2(x);
     return y;
   end if;
-  y := y+destilled.psi_asy(x);
+  y := y+%%SCHEMA%%.psi_asy(x);
   return y;
 end;
 $$

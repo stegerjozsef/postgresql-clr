@@ -1,5 +1,5 @@
 -- scipy/special/xsf/cephes/psi.h
-CREATE OR REPLACE FUNCTION destilled.psi_asy(x double precision)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.psi_asy(x double precision)
 returns double precision as 
 $$
 declare
@@ -11,7 +11,7 @@ declare
 begin
   if (x < 1.0e17) then
     z := 1.0 / (x * x);
-    y := z * destilled.polevl(z, psi_A, 6);
+    y := z * %%SCHEMA%%.polevl(z, psi_A, 6);
   else
     y := 0.0;
   end if;

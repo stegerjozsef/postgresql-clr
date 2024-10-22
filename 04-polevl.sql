@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION destilled.polevl(x double precision, coef DOUBLE PRECISION[], N integer)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.polevl(x double precision, coef DOUBLE PRECISION[], N integer)
 returns double precision as 
 $$
 declare

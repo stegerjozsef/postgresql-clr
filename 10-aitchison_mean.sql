@@ -1,5 +1,5 @@
 --https://bitbucket.org/genomicepidemiology/pycodamath/src/master/src/pycodamath/pycoda.py
-CREATE OR REPLACE FUNCTION destilled.aitchison_mean(input_array DOUBLE PRECISION[])
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.aitchison_mean(input_array DOUBLE PRECISION[])
 RETURNS DOUBLE PRECISION[] AS
 $$
 declare
@@ -13,7 +13,7 @@ declare
 BEGIN
   N := array_length(input_array, 1);
   for i in 1..N loop
-    x := exp(destilled.psi(input_array[i] + alpha));
+    x := exp(%%SCHEMA%%.psi(input_array[i] + alpha));
       back[i] := x;
     norm := norm + x;
   end loop;

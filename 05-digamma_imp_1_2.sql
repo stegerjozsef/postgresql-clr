@@ -1,5 +1,5 @@
 -- scipy/special/xsf/cephes/psi.h
-CREATE OR REPLACE FUNCTION destilled.digamma_imp_1_2(x double precision)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.digamma_imp_1_2(x double precision)
 returns double precision as 
 $$
 declare
@@ -22,7 +22,7 @@ begin
   g := x - psi_root1;
   g := g - psi_root2;
   g := g - psi_root3;
-  r := destilled.polevl(x - 1.0, psi_P, 5) / destilled.polevl(x - 1.0, psi_Q, 6);
+  r := %%SCHEMA%%.polevl(x - 1.0, psi_P, 5) / %%SCHEMA%%.polevl(x - 1.0, psi_Q, 6);
   return g * psi_Y + g * r;
 end;
 $$

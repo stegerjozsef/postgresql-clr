@@ -1,5 +1,5 @@
 --https://bitbucket.org/genomicepidemiology/pycodamath/src/master/src/pycodamath/pycoda.py
-CREATE OR REPLACE FUNCTION destilled.clr(input_array DOUBLE PRECISION[], forceshift boolean)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.clr(input_array DOUBLE PRECISION[], forceshift boolean)
 RETURNS DOUBLE PRECISION[] AS
 $$
 declare
@@ -11,7 +11,7 @@ declare
   tmp double precision[];
 begin
   if input_array @> array[0.::double precision] or forceshift then
-    tmp := destilled.aitchison_mean(input_array);
+    tmp := %%SCHEMA%%.aitchison_mean(input_array);
   else
     tmp := input_array;
   end if;

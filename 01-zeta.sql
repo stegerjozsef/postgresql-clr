@@ -1,5 +1,5 @@
 -- scipy/special/xsf/cephes/zeta.h
-CREATE OR REPLACE FUNCTION destilled.zeta(x double precision, q double precision)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.zeta(x double precision, q double precision)
 returns double precision as 
 $$
 declare

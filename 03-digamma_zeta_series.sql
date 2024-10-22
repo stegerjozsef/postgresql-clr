@@ -1,9 +1,9 @@
 -- scipy/special/xsf/digamma.h
-CREATE OR REPLACE FUNCTION destilled.digamma_zeta_series(x double precision, root double precision, rootval double precision)
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.digamma_zeta_series(x double precision, root double precision, rootval double precision)
 returns double precision as 
 $$
 declare
-  epsilon double precision := 2.220446049250313e-16;  -- destilled.calculate_epsilon() evaluates to this, speed up?
+  epsilon double precision := 2.220446049250313e-16;  -- %%SCHEMA%%.calculate_epsilon() evaluates to this, speed up?
   res double precision;
   coeff double precision;
   term double precision;
@@ -15,7 +15,7 @@ begin
   x = x - root;
   for n in 1..99 loop
     coeff = coeff * (-x);
-    term := coeff * destilled.zeta(n + 1, root);
+    term := coeff * %%SCHEMA%%.zeta(n + 1, root);
     res := res + term;
     if (abs(term) < epsilon * abs(res)) then
       exit;

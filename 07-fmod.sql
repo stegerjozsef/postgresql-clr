@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION destilled.fmod (
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.fmod (
    dividend double precision,
    divisor double precision
 ) RETURNS double precision

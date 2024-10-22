@@ -1,5 +1,5 @@
 -- evaluiates to 2.220446049250313e-16
-CREATE OR REPLACE FUNCTION destilled.calculate_epsilon()
+CREATE OR REPLACE FUNCTION %%SCHEMA%%.calculate_epsilon()
 RETURNS FLOAT8 AS
 $$
 DECLARE
